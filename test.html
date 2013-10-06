@@ -1,0 +1,18 @@
+<!doctype html>
+<head>
+  <title>File Upload</title>
+  <meta charset="UTF-8">
+  <link href="upload.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+  <form id="form" method="post"  enctype="multipart/form-data" action="javascript:void(0);">
+    <input type="file" id="files" name="files[]"></input>
+    <output id="list"></output>
+    <progress id="progress" value="0" max="100"><span>0</span>%</progress>
+    <input type="submit" id="upload" value="Upload" />
+  </form>
+  <script type="text/javascript" src="/js/bluebird_debug.js"></script>
+  <script type="text/javascript" src="/js/upload.js"></script>
+
+</body>
