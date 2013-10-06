@@ -24,7 +24,24 @@
         }
 
         var file = files[0];
-        uploader = fileUploader(file, segmentSize);
+
+        var sessionId = (function() {
+            //from http://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript-jquery
+            function hash(str){
+                var hash = 0, i, char;
+                if (str.length == 0) return hash;
+                for (i = 0, l = str.length; i < l; i++) {
+                    char  = str.charCodeAt(i);
+                    hash  = ((hash<<5)-hash)+char;
+                    hash |= 0; // Convert to 32bit integer
+                }
+                return hash;
+            };
+
+            return hash(file.name + '##' + file.size);
+        })();
+
+        uploader = fileUploader(file, segmentSize, sessionId);
 
         uploader.fetchStatus().then(function(status) {
             updateProgress(status);
@@ -40,7 +57,7 @@
 
         uploader.fetchStatus()
             .then( function(status) {
-                return uploader.uploadSegments( status, updateProgress);
+                return uploader.uploadSegments(status, updateProgress);
             })
             .then(
                 function(status) {
