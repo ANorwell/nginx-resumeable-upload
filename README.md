@@ -35,8 +35,8 @@ The js library works as follows:
 where `file` is a File object from the HTML5 File API, and `segmentSize` is the
 size in bytes of each segment of an upload. The methods of the uploader object
 return [Bluebird Promises/A+](https://github.com/petkaantonov/bluebird); which
-may be interacted with using (this
-API)[https://github.com/petkaantonov/bluebird/blob/master/API.md]. It offers the
+may be interacted with using [this
+API](https://github.com/petkaantonov/bluebird/blob/master/API.md). It offers the
 following methods:
 
 * `uploader.fetchStatus()`: returns a promise for a status object, which has the
