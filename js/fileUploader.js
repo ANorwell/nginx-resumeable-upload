@@ -6,8 +6,6 @@ var fileUploader = function(file, segmentSize, sessionId) {
         return Promise.fulfilled(file.slice(start,finish + 1));
     };
 
-
-
     var uploadByteRange = function(start, finish) {
 
         var upload = function(bytes) {
